@@ -22,7 +22,7 @@ export default {
         this._draggableDestroy = draggableHelper(triggerEl, {
           // trigger el
           getEl: () => this.$el,
-          minTranslate: 10,
+          minTranslate: 0,
           drag: (e, opt, store) => {
             autoMoveDragPlaceHolder.dragStart()
             // this store is not tree

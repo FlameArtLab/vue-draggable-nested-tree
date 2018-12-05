@@ -1253,7 +1253,9 @@
       space: {
         type: Number,
         default: 10
-      } // space between node, unit px
+      },
+      // space between node, unit px
+      CustomCompeletedData: {} // add any custom params into each node
 
     },
     components: {
@@ -1301,6 +1303,7 @@
           innerBackStyle: {},
           innerBackClass: {}
         };
+        Object.assign(compeletedData, this.CustomCompeletedData);
 
         for (var key in compeletedData) {
           if (!node.hasOwnProperty(key)) {
@@ -2591,7 +2594,7 @@
             getEl: function getEl() {
               return _this.$el;
             },
-            minTranslate: 10,
+            minTranslate: 0,
             drag: function drag(e, opt, store$$1) {
               autoMoveDragPlaceHolder.dragStart(); // this store is not tree
 

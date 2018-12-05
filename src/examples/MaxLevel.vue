@@ -2,7 +2,7 @@
 <template lang="pug">
 div
   h2 Max Level <input v-model="maxLevel" type="number" />
-  Tree(:data="originalData" draggable crossTree ref="tree1" @drag="ondrag")
+  Tree.Absoluted(:data="originalData" draggable crossTree ref="tree1" @drag="ondrag")
     div(slot-scope="{data, store}")
       b(v-if="data.children && data.children.length" @click="store.toggleOpen(data)") {{data.open ? '-' : '+'}}&nbsp;
       span {{data.text}}-droppable:{{data.droppable}}
@@ -81,4 +81,8 @@ export default {
 </script>
 
 <style lang="scss">
+  .Absoluted {
+    overflow-y: scroll;
+    height: 50%;
+  }
 </style>

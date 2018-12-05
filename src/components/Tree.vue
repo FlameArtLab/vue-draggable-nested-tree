@@ -18,6 +18,7 @@ export default {
     activatedClass: {default: 'active'},
     openedClass: {default: 'open'},
     space: {type: Number, default: 10}, // space between node, unit px
+    CustomCompeletedData: {} // add any custom params into each node
   },
   components: {TreeNode},
   data() {
@@ -56,6 +57,7 @@ export default {
         innerBackStyle: {},
         innerBackClass: {},
       }
+      Object.assign(compeletedData, this.CustomCompeletedData);
       for (const key in compeletedData) {
         if (!node.hasOwnProperty(key)) {
           this.$set(node, key, compeletedData[key])

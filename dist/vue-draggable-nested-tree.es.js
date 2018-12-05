@@ -161,7 +161,9 @@ var Tree = {
     space: {
       type: Number,
       default: 10
-    } // space between node, unit px
+    },
+    // space between node, unit px
+    CustomCompeletedData: {} // add any custom params into each node
 
   },
   components: {
@@ -209,6 +211,7 @@ var Tree = {
         innerBackStyle: {},
         innerBackClass: {}
       };
+      Object.assign(compeletedData, this.CustomCompeletedData);
 
       for (var key in compeletedData) {
         if (!node.hasOwnProperty(key)) {
@@ -1188,7 +1191,7 @@ var DraggableTreeNode = {
           getEl: function getEl() {
             return _this.$el;
           },
-          minTranslate: 10,
+          minTranslate: 0,
           drag: function drag(e, opt, store) {
             autoMoveDragPlaceHolder.dragStart(); // this store is not tree
 

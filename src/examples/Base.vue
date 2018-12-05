@@ -1,8 +1,8 @@
 <!-- this is an example -->
 <template lang="pug">
 div
-  h2 Base
-  Tree(:data="originalData" draggable crossTree ref="tree1" @change="tree1Change")
+  h2(@click="add") Base
+  Tree.Absoluted(:data="originalData" draggable crossTree ref="tree1" @change="tree1Change")
     div(slot-scope="{data, store}")
       b(v-if="data.children && data.children.length" @click="store.toggleOpen(data)") {{data.open ? '-' : '+'}}&nbsp;
       span {{data.text}}
@@ -53,6 +53,9 @@ export default {
     tree1Change(node, targetTree) {
       this.data = targetTree.getPureData()
     },
+    add() {
+      this.originalData[0].children.push({text: "HELLO",children:[{text:"HELLO",children:[{text:"HELLO"}]}]})
+    }
   },
   // created() {},
   // mounted() {},
@@ -60,4 +63,10 @@ export default {
 </script>
 
 <style lang="scss">
+
+  .Absoluted {
+    overflow-y: scroll;
+    height: 50%;
+  }
+
 </style>
