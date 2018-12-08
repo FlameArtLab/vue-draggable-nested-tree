@@ -52,7 +52,7 @@ export default {
           },
           drop: (e, opt, store) => {
             autoMoveDragPlaceHolder.dragEnd()
-            const draggableHelperInfo = {event: e, options: opt, store}
+            const draggableHelperInfo = {event: e, options: opt, target: dplh._vm, store}
             if (this.store.ondragend && this.store.ondragend(this.data, draggableHelperInfo) === false) {
               hp.arrayRemove(dplh.parent.children, dplh)
               // can't drop, no change

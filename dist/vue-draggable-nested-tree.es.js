@@ -1239,6 +1239,7 @@ var DraggableTreeNode = {
             var draggableHelperInfo = {
               event: e,
               options: opt,
+              target: dplh._vm,
               store: store
             };
 

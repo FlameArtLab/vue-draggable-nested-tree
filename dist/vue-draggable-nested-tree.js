@@ -2642,6 +2642,7 @@
               var draggableHelperInfo = {
                 event: e,
                 options: opt,
+                target: dplh._vm,
                 store: store$$1
               };
 
